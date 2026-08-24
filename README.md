@@ -1,1 +1,2 @@
-# FLUTTER-PROJECT
+Abstract
+A medicine reminder is a digital system designed to help patients take their prescribed medications at the correct time and dosage. It provides timely notifications, records medication schedules, and helps users avoid missed or delayed doses. Such a system can be implemented as a mobile application or a smart device and may include features such as customizable reminders, dosage information, medication history, and alerts for upcoming doses. Medicine reminder systems are especially useful for elderly patients and individuals taking multiple medications. By improving medication adherence and reducing missed doses, the system can contribute to better treatment outcomes and safer healthcare management.
