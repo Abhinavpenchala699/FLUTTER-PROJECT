@@ -3,11 +3,12 @@ import '../main.dart';
 
 class MedicineCard extends StatelessWidget {
   final MedicineData medicine;
-  const MedicineCard({super.key, required this.medicine});
+  final VoidCallback? onTap;
+  const MedicineCard({super.key, required this.medicine, this.onTap});
 
   @override
   Widget build(BuildContext context) => Card(
-        child: Padding(
+        child: InkWell(onTap: onTap, borderRadius: BorderRadius.circular(12), child: Padding(
           padding: const EdgeInsets.all(16),
           child: Row(children: [
             const CircleAvatar(child: Icon(Icons.medication_outlined)),
@@ -18,6 +19,6 @@ class MedicineCard extends StatelessWidget {
             ])),
             Column(children: [const Icon(Icons.access_time, size: 18), Text(medicine.time)]),
           ]),
-        ),
+        )),
       );
 }

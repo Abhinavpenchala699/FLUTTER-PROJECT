@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(title: const Text('Medicine Reminder')),
+        appBar: AppBar(title: const Text('Medicine Reminder'), actions: [IconButton(icon: const Icon(Icons.medication), onPressed: () => Navigator.pushNamed(context, '/medicines'))]),
         body: SafeArea(
           child: LayoutBuilder(builder: (context, constraints) {
             final wide = constraints.maxWidth >= 600;
@@ -46,14 +46,14 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(height: 12),
                 if (wide)
                   Row(children: [
-                    Expanded(child: MedicineCard(medicine: medicines[0])),
+                    Expanded(child: MedicineCard(medicine: medicines[0], onTap: () => Navigator.pushNamed(context, '/details', arguments: medicines[0]))),
                     const SizedBox(width: 16),
-                    Expanded(child: MedicineCard(medicine: medicines[1])),
+                    Expanded(child: MedicineCard(medicine: medicines[1], onTap: () => Navigator.pushNamed(context, '/details', arguments: medicines[1]))),
                   ])
                 else
                   ...medicines.map((m) => Padding(padding: const EdgeInsets.only(bottom: 10), child: MedicineCard(medicine: m))),
                 const SizedBox(height: 16),
-                SizedBox(width: double.infinity, child: ElevatedButton.icon(onPressed: () {}, icon: const Icon(Icons.add), label: const Text('Add New Medicine'))),
+                SizedBox(width: double.infinity, child: ElevatedButton.icon(onPressed: () => Navigator.pushNamed(context, '/add'), icon: const Icon(Icons.add), label: const Text('Add New Medicine'))),
                 const SizedBox(height: 12),
                 Text('Screen width: ${MediaQuery.of(context).size.width.toStringAsFixed(0)} px', style: Theme.of(context).textTheme.bodySmall),
               ]),
